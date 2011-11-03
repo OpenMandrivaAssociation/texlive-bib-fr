@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /biblio/bibtex/contrib/bib-fr
+# catalog-date 2009-11-09 14:03:25 +0100
+# catalog-license lppl
+# catalog-version 1.5
 Name:		texlive-bib-fr
 Version:	1.5
 Release:	1
@@ -49,6 +55,7 @@ redefining FUNCTIONs named fr.*, at the beginning (lines 50-
 %{_texmfdistdir}/bibtex/bst/bib-fr/unsrtnat-fr.bst
 %doc %{_texmfdistdir}/doc/bibtex/bib-fr/CHANGELOG
 %doc %{_texmfdistdir}/doc/bibtex/bib-fr/README
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -59,3 +66,5 @@ redefining FUNCTIONs named fr.*, at the beginning (lines 50-
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
