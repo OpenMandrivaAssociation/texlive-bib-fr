@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 These files are French translations of the classical BibTeX
@@ -26,20 +24,12 @@ style files. The translations can easily be modified by simply
 redefining FUNCTIONs named fr.*, at the beginning (lines 50-
 150) of each file.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -56,7 +46,6 @@ redefining FUNCTIONs named fr.*, at the beginning (lines 50-
 %{_texmfdistdir}/bibtex/bst/bib-fr/unsrtnat-fr.bst
 %doc %{_texmfdistdir}/doc/bibtex/bib-fr/CHANGELOG
 %doc %{_texmfdistdir}/doc/bibtex/bib-fr/README
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -67,5 +56,3 @@ redefining FUNCTIONs named fr.*, at the beginning (lines 50-
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
