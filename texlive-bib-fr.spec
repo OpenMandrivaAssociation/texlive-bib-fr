@@ -56,3 +56,18 @@ redefining FUNCTIONs named fr.*, at the beginning (lines 50-
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex doc %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.5-2
++ Revision: 749604
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.5-1
++ Revision: 717918
+- texlive-bib-fr
+- texlive-bib-fr
+- texlive-bib-fr
+- texlive-bib-fr
+- texlive-bib-fr
+
