@@ -6,7 +6,7 @@
 # catalog-version 1.5
 Name:		texlive-bib-fr
 Version:	1.5
-Release:	2
+Release:	3
 Summary:	French translation of classical BibTeX styles
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/biblio/bibtex/contrib/bib-fr
