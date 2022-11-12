@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /biblio/bibtex/contrib/bib-fr
-# catalog-date 2009-11-09 14:03:25 +0100
-# catalog-license lppl
-# catalog-version 1.5
 Name:		texlive-bib-fr
-Version:	1.5
-Release:	11
+Version:	15878
+Release:	1
 Summary:	French translation of classical BibTeX styles
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/biblio/bibtex/contrib/bib-fr
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.r15878.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.doc.r15878.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -25,12 +19,12 @@ redefining FUNCTIONs named fr.*, at the beginning (lines 50-
 150) of each file.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -49,25 +43,10 @@ redefining FUNCTIONs named fr.*, at the beginning (lines 50-
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.5-2
-+ Revision: 749604
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.5-1
-+ Revision: 717918
-- texlive-bib-fr
-- texlive-bib-fr
-- texlive-bib-fr
-- texlive-bib-fr
-- texlive-bib-fr
-
