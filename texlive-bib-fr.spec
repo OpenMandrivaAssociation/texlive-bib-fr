@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	French translation of classical BibTeX styles
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/biblio/bibtex/contrib/bib-fr
+URL:		https://www.ctan.org/tex-archive/biblio/bibtex/contrib/bib-fr
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.doc.r%{version}.tar.xz
