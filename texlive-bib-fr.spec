@@ -1,6 +1,6 @@
 Name:		texlive-bib-fr
-Version:	15878
-Release:	2
+Version:	76790
+Release:	1
 Summary:	French translation of classical BibTeX styles
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/biblio/bibtex/contrib/bib-fr
