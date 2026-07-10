@@ -1,52 +1,24 @@
-Name:		texlive-bib-fr
-Version:	76790
-Release:	1
+%global tl_name bib-fr
+%global tl_revision 76790
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.5
+Release:	%{tl_revision}.1
 Summary:	French translation of classical BibTeX styles
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/biblio/bibtex/contrib/bib-fr
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.doc.r%{version}.tar.xz
+License:	lppl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bib-fr.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-These files are French translations of the classical BibTeX
-style files. The translations can easily be modified by simply
-redefining FUNCTIONs named fr.*, at the beginning (lines 50-
-150) of each file.
+These files are French translations of the classical BibTeX style files.
+The translations can easily be modified by simply redefining FUNCTIONs
+named fr.*, at the beginning (lines 50-150) of each file.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/bibtex/bst/bib-fr/abbrv-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/abbrvnat-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/alpha-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/apalike-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/ieeetr-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/plain-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/plainnat-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/siam-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/unsrt-fr.bst
-%{_texmfdistdir}/bibtex/bst/bib-fr/unsrtnat-fr.bst
-%doc %{_texmfdistdir}/doc/bibtex/bib-fr/CHANGELOG
-%doc %{_texmfdistdir}/doc/bibtex/bib-fr/README
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar bibtex doc %{buildroot}%{_texmfdistdir}
